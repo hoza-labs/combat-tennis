@@ -818,17 +818,21 @@ function moveStuff()
 function someoneWon(left)
 {
   var s="";
+  var pan=0;
 
   stop=true;
 
   if(left)
   {
     leftWins++;
+    pan=-75;
   }
   else
   {
     rightWins++;
+    pan=75;
   }
+
   s="index.html?leftWon="+left + "&leftWins="+leftWins + "&rightWins="+rightWins + "&leftChange="+leftChange + "&rightChange="+rightChange + "&soundOn="+soundOn + "&leftScore="+leftScore + "&rightScore="+rightScore;
   if(leftPaddle.style.visibility=='hidden')
   {
@@ -838,7 +842,15 @@ function someoneWon(left)
   {
     s+="&rightVisible=hidden";
   }
-  document.location=s;
+
+  // play the win sound, wait for it to finish, then navigate
+  fxPlayer.playAsync('win.mp3', pan).then(() => {
+    logmsg("someoneWon: navigating to "+s);
+    document.location=s;
+  });
+
+  // fn exits immediately but stop==true prevents moveStuff from continuing
+  logmsg("exiting the someoneWon function")
 }
 
 function resetBall(ball)
@@ -966,15 +978,6 @@ function analyzeAddress()
   if(a.indexOf('?leftWon=')!=-1)
   {
     leftWon=a.substring(a.indexOf('?leftWon=')+9,a.indexOf('&leftWins='));
-
-    if(leftWon=="true")
-    {
-      playSound('win.mp3',-75);
-    }
-    else
-    {
-      playSound('win.mp3',75);
-    }
 
     leftWinNum=a.substring(a.indexOf('&leftWins=')+10,a.indexOf('&rightWins='));
     leftWins=parseInt(leftWinNum);

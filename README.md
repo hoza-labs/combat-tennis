@@ -17,9 +17,15 @@ The game was thrown together in 2009 by the following teenagers, to increase the
 - Game Idea: Cheyenne Hoza
 - Testing: Kathleen Hoza
 
-## STATUS
+## STATUS 🎉
 
-The game worked flawlessly in 2009, but needs attention to make it load and run in today's browsers. Perhaps it would even be best to rewrite it from scratch.
+It's working again, as of December 2025!
+
+- The original flash-based sound solution was the only problem found. We replaced that with a homegrown [fxplayer.js], which uses the modern AudioContext object to play the sounds.
+- There are no other known issues. ...except perhaps that it would be best to rewrite this thing from scratch 🙂
+- If you run into an issue, please [start a discussion] or [submit a proposed change].
+
+[fxplayer.js]: ./docs/fxplayer.js
 
 ## LICENSE
 
