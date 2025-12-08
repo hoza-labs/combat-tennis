@@ -9,9 +9,17 @@ This game was originally called "Super Pong", but we felt that name might make p
 [imdb]: https://www.imdb.com/title/tt9853512/
 [short film "Combat Tennis"]: https://www.youtube.com/watch?v=bwXss2QzFDY
 
+## ORIGIN / CREDITS / BLAME
+
+The game was thrown together in 2009 by the following teenagers, to increase the fun times and happiness in the world:
+
+- Programming: William Hoza
+- Game Idea: Cheyenne Hoza
+- Testing: Kathleen Hoza
+
 ## STATUS
 
-The game worked flawlessly in 2009, but needs attention to make it load and run in today's browsers.
+The game worked flawlessly in 2009, but needs attention to make it load and run in today's browsers. Perhaps it would even be best to rewrite it from scratch.
 
 ## COPYRIGHT
 
