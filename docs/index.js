@@ -512,7 +512,7 @@ function moveStuff()
               leftPaddle.style.height=leftPaddle.offsetHeight-(bullets[i].element.offsetTop+bullets[i].element.offsetHeight-leftPaddle.offsetTop);
               leftGun.style.top=middle-(bullets[i].element.offsetTop+bullets[i].element.offsetHeight-leftPaddle.offsetTop);
               leftPaddle.style.top=leftPaddle.offsetTop+(bullets[i].element.offsetTop+bullets[i].element.offsetHeight-leftPaddle.offsetTop);
-              
+
               document.body.removeChild(bullets[i].element);
               bullets.splice(i,1);
               break;
@@ -523,7 +523,7 @@ function moveStuff()
               //the bullet is below the gun
 
               leftPaddle.style.height=leftPaddle.offsetHeight-(leftPaddle.offsetTop+leftPaddle.offsetHeight-bullets[i].element.offsetTop);
-            
+
               document.body.removeChild(bullets[i].element);
               bullets.splice(i,1);
               break;
@@ -550,7 +550,7 @@ function moveStuff()
             //{
             //  middle=rightPaddle.offsetHeight/2;
             //}
-            
+
             if(bullets[i].element.offsetTop>=rightPaddle.offsetTop+middle-rightGun.offsetHeight && bullets[i].element.offsetTop<rightPaddle.offsetTop+middle+rightGun.offsetHeight)
             {
               //the bullet is inside the gun
@@ -574,7 +574,7 @@ function moveStuff()
               rightPaddle.style.height=rightPaddle.offsetHeight-(bullets[i].element.offsetTop+bullets[i].element.offsetHeight-rightPaddle.offsetTop);
               rightGun.style.top=middle-(bullets[i].element.offsetTop+bullets[i].element.offsetHeight-rightPaddle.offsetTop);
               rightPaddle.style.top=rightPaddle.offsetTop+(bullets[i].element.offsetTop+bullets[i].element.offsetHeight-rightPaddle.offsetTop);
-              
+
               document.body.removeChild(bullets[i].element);
               bullets.splice(i,1);
               break;
@@ -585,7 +585,7 @@ function moveStuff()
               //the bullet is below the gun
 
               rightPaddle.style.height=rightPaddle.offsetHeight-(rightPaddle.offsetTop+rightPaddle.offsetHeight-bullets[i].element.offsetTop);
-            
+
               document.body.removeChild(bullets[i].element);
               bullets.splice(i,1);
               break;
@@ -742,9 +742,9 @@ function moveStuff()
                 rightBullets=rightBullets+2;
                 $('rightBullets').innerHTML=rightBullets;
               }
-              
+
               playSound('ballbreak.mp3',bullets[i].element.offsetLeft/document.body.clientWidth*200-100);
-              
+
               if(balls[i2].offsetWidth>10)
               {
                 balls[i2].style.width=balls[i2].offsetWidth/2;
@@ -916,7 +916,7 @@ function init()
   resizeStuff();
 
   if(window.CollectGarbage) window.CollectGarbage();
-  
+
   // Execute when the page is fully loaded
   window.addEventListener('load', function() {
     setTimeout("analyzeAddress();",100);
@@ -1064,7 +1064,7 @@ function fadeButtonsIn(o)
   o=o+0.005;
   setOpac($('playButton'),o);
 
-  setTimeout('fadeButtonsIn('+o+');',10); 
+  setTimeout('fadeButtonsIn('+o+');',10);
 }
 
 function setOpac(ob,opac) //from 0 to 1
@@ -1097,38 +1097,38 @@ function $(id)
   return document.getElementById(id);
 }
 
- 	function createCookie(name,value,days)
-	{
-		if (days)
-		{
-			var date = new Date();
-			date.setTime(date.getTime()+(days*24*60*60*1000));
-			var expires = "; expires=" + date.toGMTString();
-		}
-		else var expires = "";
-		
-		document.cookie = name+"="+value+expires+"; path=/;"
-			if (value != "" && readCookie(name) != value)
-		{
-			return false;
-		}
-		return true;
-	}
-	
-	function readCookie(name,defaultValue)
-	{
-		var n = 0;
-		var nameEQ = name + "=";
-		var ca = document.cookie.split(';');
-	
-		for(n = 0; n < ca.length;n++)
-		{
-			var c = ca[n];
-			
-			while (c.charAt(0)==' ') c = c.substring(1,c.length);
-			
-			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-		}
-		
-		return defaultValue;
-	}
+function createCookie(name,value,days)
+{
+  if (days)
+  {
+    var date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    var expires = "; expires=" + date.toGMTString();
+  }
+  else var expires = "";
+
+  document.cookie = name+"="+value+expires+"; path=/;"
+  if (value != "" && readCookie(name) != value)
+  {
+    return false;
+  }
+  return true;
+}
+
+function readCookie(name,defaultValue)
+{
+  var n = 0;
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+
+  for(n = 0; n < ca.length;n++)
+  {
+    var c = ca[n];
+
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+
+  return defaultValue;
+}
