@@ -63,6 +63,7 @@ var leftBullets=5;
 var rightBullets=5;
 var soundLoaded=false;
 var soundOn=true;
+var fxPlayer=null;
 var keyDivBeingSet;
 
 var bullets=new Array();
@@ -379,11 +380,12 @@ function shoot(left)
   }
 }
 
-function playSound(theUrl,thePan)
+function playSound(theUrl, thePan)
 {
   if(soundOn)
   {
-    console.log("not playing sound: "+theUrl+" at pan "+thePan);
+    logmsg("playing sound: "+theUrl+" at pan "+thePan);
+    fxPlayer.play(theUrl, thePan);
   }
 }
 
@@ -881,7 +883,7 @@ function setBallSpeeds(ball)
 
 function resizeStuff()
 {
-      console.log("resizing stuff");
+      logmsg("resizing stuff");
       $('playButton').style.left=document.body.clientWidth/2-$('playButton').offsetWidth/2;
       $('playButton').style.top=document.body.clientHeight/2-$('playButton').offsetHeight/2;
       $('leftWins').style.left=document.body.clientWidth/2-$('leftWins').offsetWidth-10;
@@ -919,9 +921,34 @@ function init()
   if(window.CollectGarbage) window.CollectGarbage();
 
   window.addEventListener('load', function() {
-    // fires when page is fully loaded
-    setTimeout("analyzeAddress();",100);
+    logmsg("window.load event");
+    setTimeout("onPageLoadComplete();",100);
   });
+}
+
+function onPageLoadComplete() {
+  logmsg("onPageLoadComplete");
+  initSounds();
+  analyzeAddress();
+}
+
+function initSounds() {
+  logmsg("preloading sounds...");
+  fxPlayer = new FxPlayer("sounds/");
+  fxPlayer.preloadAll([
+    'shoot.mp3',
+    'hit.mp3',
+    'miss.mp3',
+    'ballbreak.mp3',
+    'win.mp3',
+    'paddlehit.mp3',
+    'outofbullets.mp3',
+    'gungone.mp3',
+    'gunback.mp3',
+    'ahh.mp3',
+    'triumphant.mp3'
+    ]);
+  logmsg("...all sounds preloaded");
 }
 
 function analyzeAddress()
