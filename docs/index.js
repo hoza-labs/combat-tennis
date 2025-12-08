@@ -881,6 +881,7 @@ function setBallSpeeds(ball)
 
 function resizeStuff()
 {
+      console.log("resizing stuff");
       $('playButton').style.left=document.body.clientWidth/2-$('playButton').offsetWidth/2;
       $('playButton').style.top=document.body.clientHeight/2-$('playButton').offsetHeight/2;
       $('leftWins').style.left=document.body.clientWidth/2-$('leftWins').offsetWidth-10;
@@ -917,8 +918,8 @@ function init()
 
   if(window.CollectGarbage) window.CollectGarbage();
 
-  // Execute when the page is fully loaded
   window.addEventListener('load', function() {
+    // fires when page is fully loaded
     setTimeout("analyzeAddress();",100);
   });
 }
