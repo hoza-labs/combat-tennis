@@ -21,10 +21,9 @@ The game was thrown together in 2009 by the following teenagers, to increase the
 
 The game worked flawlessly in 2009, but needs attention to make it load and run in today's browsers. Perhaps it would even be best to rewrite it from scratch.
 
-## COPYRIGHT
+## LICENSE
 
-This project is copyright (c) 2009 William Hoza. All rights reserved.
-Please see [LICENSE.MD](./LICENSE.md) for additional details.
+MIT License. Please see [LICENSE.MD](./LICENSE.md) for details.
 
 ## CONTRIBUTING
 

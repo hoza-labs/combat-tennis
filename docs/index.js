@@ -43,7 +43,6 @@ var lastLeftShootTime=0;
 var lastRightShootTime=0;
 var leftGunLossTime=0;
 var rightGunLossTime=0;
-var soundNum=0;
 var stop=false;
 var leftWins=0;
 var rightWins=0;
@@ -384,13 +383,7 @@ function playSound(theUrl,thePan)
 {
   if(soundOn)
   {
-    var aSoundObject = soundManager.createSound({
-     id:'mySound'+soundNum,
-     url:'sounds/'+theUrl,
-     pan:thePan
-    });
-    aSoundObject.play();
-    soundNum++;
+    console.log("not playing sound: "+theUrl+" at pan "+thePan);
   }
 }
 
@@ -924,10 +917,10 @@ function init()
 
   if(window.CollectGarbage) window.CollectGarbage();
   
-  soundManager.onload=function()
-  {
+  // Execute when the page is fully loaded
+  window.addEventListener('load', function() {
     setTimeout("analyzeAddress();",100);
-  }
+  });
 }
 
 function analyzeAddress()
